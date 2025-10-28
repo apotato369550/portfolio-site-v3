@@ -8,7 +8,8 @@ const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
+    honeypot: '', // Hidden field for spam protection
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
@@ -43,6 +44,15 @@ const ContactSection = () => {
   // Handle form submit - sending that POST request
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Check honeypot
+    if (formData.honeypot) {
+      // Bot detected - silently fail
+      setFeedback('Message sent successfully! Thanks for reaching out.');
+      setFormData({ name: '', email: '', message: '', honeypot: '' });
+      return;
+    }
+
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
@@ -58,12 +68,16 @@ const ContactSection = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
       });
 
       if (response.ok) {
         setFeedback('Message sent successfully! Thanks for reaching out.');
-        setFormData({ name: '', email: '', message: '' });
+        setFormData({ name: '', email: '', message: '', honeypot: '' });
       } else {
         setFeedback('Oops, something went wrong. Try again later.');
       }
@@ -109,6 +123,16 @@ const ContactSection = () => {
            <div className="contact-form-container max-w-3xl w-full">
             <div className="glass-morphism p-6 sm:p-8 rounded-xl">
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Honeypot field (hidden from users) */}
+                <input
+                  type="text"
+                  name="website"
+                  value={formData.honeypot}
+                  onChange={(e) => setFormData({ ...formData, honeypot: e.target.value })}
+                  style={{ display: 'none' }}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
                 <div>
                   <label htmlFor="name" className="block text-white text-xl mb-2 font-light">Name</label>
                   <input
