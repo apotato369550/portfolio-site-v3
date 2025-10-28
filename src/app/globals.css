@@ -12,6 +12,16 @@ body {
   overflow-x: hidden;
 }
 
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+}
+
+.contact-section + footer {
+  margin-top: 0;
+}
+
 /* Loading Screen Fade-in Animation */
 .app-container {
   opacity: 0;

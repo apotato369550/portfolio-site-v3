@@ -1,0 +1,116 @@
+/* Enhanced Navbar Styling */
+#navbar {
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+.navbar-item {
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.navbar-item:hover {
+  transform: translateY(-2px);
+}
+
+.navbar-item a {
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem 0;
+}
+
+/* Enhanced underline animation */
+.navbar-item a span {
+  background: linear-gradient(90deg, #00ffff, #0080ff);
+  height: 2px;
+  border-radius: 1px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) and (min-width: 769px) {
+  #navbar {
+    display: block !important;
+  }
+
+  #navbar ul {
+    margin: 0 2rem;
+    margin-top: 2rem;
+  }
+
+  .navbar-item a {
+    font-size: 0.8rem; /* Smaller for split screen */
+  }
+}
+
+@media (max-width: 768px) {
+  #navbar {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  #navbar ul {
+    margin: 0 4rem;
+    margin-top: 3rem;
+  }
+
+  .navbar-item a {
+    font-size: 0.7rem; /* 24px */
+  }
+}
+
+@media (min-width: 1281px) and (max-width: 1536px) {
+  #navbar ul {
+    margin: 0 5rem;
+    margin-top: 3.5rem;
+  }
+
+  .navbar-item a {
+    font-size: 1rem; /* 30px */
+  }
+}
+
+@media (min-width: 1537px) {
+  #navbar ul {
+    margin: 0 6rem;
+    margin-top: 4rem;
+  }
+
+  .navbar-item a {
+    font-size: 1.5rem; /* 36px */
+  }
+}
+
+@media (min-width: 1920px) {
+  #navbar ul {
+    margin: 0 8rem;
+    margin-top: 5rem;
+  }
+
+  .navbar-item a {
+    font-size: 1.8rem; /* 48px */
+  }
+}
+
+/* Smooth transitions for all interactive elements */
+.navbar-item a,
+.navbar-item a span {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Focus states for accessibility */
+.navbar-item a:focus {
+  outline: 2px solid rgba(0, 255, 255, 0.5);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Active state styling */
+.navbar-item a.active {
+  color: #00ffff;
+}
+
+.navbar-item a.active span {
+  width: 100% !important;
+}
