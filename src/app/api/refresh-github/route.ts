@@ -1,14 +1,22 @@
 import { NextResponse } from 'next/server'
-import { supabaseAdmin } from '@/lib/supabase'
+import { fetchGitHubData } from '@/lib/fetchers/github'
 
-export async function GET() {
+export async function GET(request: Request) {
   try {
-    // Reference server/fetchers/fetchGithubCommits.js for the logic
-    // This will be implemented in the next prompt (external APIs)
+    // Optional: Add authentication check
+    const authHeader = request.headers.get('authorization')
+    const expectedToken = process.env.REFRESH_TOKEN
+
+    if (expectedToken && authHeader !== `Bearer ${expectedToken}`) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    }
+
+    const result = await fetchGitHubData()
 
     return NextResponse.json({
       success: true,
-      message: 'GitHub data refresh endpoint (to be implemented in step 06-external-apis)',
+      message: `Fetched ${result.count} GitHub commits`,
+      count: result.count,
     })
   } catch (error) {
     console.error('Error refreshing GitHub data:', error)
@@ -18,3 +26,6 @@ export async function GET() {
     )
   }
 }
+
+// Disable caching for this route
+export const revalidate = 0

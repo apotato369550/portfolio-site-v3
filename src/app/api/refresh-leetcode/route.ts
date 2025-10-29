@@ -1,14 +1,22 @@
 import { NextResponse } from 'next/server'
-import { supabaseAdmin } from '@/lib/supabase'
+import { fetchLeetCodeData } from '@/lib/fetchers/leetcode'
 
-export async function GET() {
+export async function GET(request: Request) {
   try {
-    // Reference server/fetchers/fetchLeetcodeSubmissions.js for the logic
-    // This will be implemented in the next prompt (external APIs)
+    // Optional: Add authentication check
+    const authHeader = request.headers.get('authorization')
+    const expectedToken = process.env.REFRESH_TOKEN
+
+    if (expectedToken && authHeader !== `Bearer ${expectedToken}`) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    }
+
+    const result = await fetchLeetCodeData()
 
     return NextResponse.json({
       success: true,
-      message: 'LeetCode data refresh endpoint (to be implemented in step 06-external-apis)',
+      message: `Fetched ${result.count} LeetCode submissions`,
+      count: result.count,
     })
   } catch (error) {
     console.error('Error refreshing LeetCode data:', error)
@@ -18,3 +26,6 @@ export async function GET() {
     )
   }
 }
+
+// Disable caching for this route
+export const revalidate = 0

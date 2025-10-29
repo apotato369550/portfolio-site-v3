@@ -1,0 +1,198 @@
+#hero {
+  margin: 0px;
+  padding: 0px;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #2d1b69 100%);
+}
+
+.hero-container {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Enhanced 3D Grid Effect */
+.hero-grid {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 70%;
+  background: linear-gradient(
+      90deg,
+      transparent 0%,
+      transparent 49%,
+      rgba(0, 255, 255, 0.2) 50%,
+      transparent 51%,
+      transparent 100%
+    ),
+    linear-gradient(
+      0deg,
+      transparent 0%,
+      transparent 49%,
+      rgba(0, 255, 255, 0.2) 50%,
+      transparent 51%,
+      transparent 100%
+    );
+  background-size: 60px 60px;
+  transform: perspective(800px) rotateX(65deg);
+  transform-origin: bottom;
+  z-index: 1;
+  animation: gridFloat 8s ease-in-out infinite;
+}
+
+@keyframes gridFloat {
+  0%, 100% {
+    transform: perspective(800px) rotateX(65deg) translateY(0px);
+  }
+  50% {
+    transform: perspective(800px) rotateX(65deg) translateY(-10px);
+  }
+}
+
+/* JAY Text Styling */
+.jay-text {
+  font-size: 8rem;
+  font-weight: 300;
+  font-family: 'Orbitron', sans-serif;
+  color: white;
+  text-shadow:
+    0 0 20px rgba(0, 255, 255, 0.8),
+    0 0 40px rgba(255, 0, 255, 0.6),
+    0 0 60px rgba(0, 255, 255, 0.4);
+  letter-spacing: 0.1em;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.greeting {
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+.name {
+  font-size: 1.25rem;
+  color: rgba(0, 255, 255, 0.8);
+  margin: 0.5rem 0;
+}
+
+.roles {
+  font-size: 1rem;
+  color: rgba(255, 0, 128, 0.7);
+  margin: 0.5rem 0;
+  letter-spacing: 0.2em;
+}
+
+/* Floating Elements */
+.floating-ellipse {
+  position: absolute;
+  border: 2px solid rgba(0, 255, 255, 0.4);
+  border-radius: 50%;
+  animation: floatEllipse 15s ease-in-out infinite;
+  z-index: 1;
+}
+
+.ellipse-1 { width: 120px; height: 80px; top: 20%; left: 10%; animation-delay: 0s; }
+.ellipse-2 { width: 100px; height: 60px; top: 60%; right: 15%; animation-delay: 5s; }
+.ellipse-3 { width: 140px; height: 90px; top: 10%; right: 10%; animation-delay: 10s; }
+.ellipse-4 { width: 110px; height: 70px; top: 45%; left: 5%; animation-delay: 12s; }
+
+@keyframes floatEllipse {
+  0%, 100% { transform: rotate(0deg) scale(1); opacity: 0.4; }
+  25% { transform: rotate(90deg) scale(1.1); opacity: 0.6; }
+  50% { transform: rotate(180deg) scale(0.9); opacity: 0.3; }
+  75% { transform: rotate(270deg) scale(1.05); opacity: 0.5; }
+}
+
+.floating-star {
+  position: absolute;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pulseStar 12s ease-in-out infinite;
+  z-index: 1;
+}
+
+.star-1 { width: 20px; height: 20px; top: 30%; left: 80%; animation-delay: 2s; }
+.star-2 { width: 15px; height: 15px; top: 70%; left: 20%; animation-delay: 7s; }
+.star-3 { width: 25px; height: 25px; top: 50%; right: 25%; animation-delay: 4s; }
+.star-4 { width: 18px; height: 18px; top: 85%; left: 50%; animation-delay: 9s; }
+
+@keyframes pulseStar {
+  0%, 100% { transform: scale(1); opacity: 0.6; filter: blur(0px); }
+  50% { transform: scale(1.5); opacity: 1; filter: blur(2px); }
+}
+
+.floating-wireframe {
+  position: absolute;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  background: transparent;
+  animation: wireframePulse 10s ease-in-out infinite;
+  z-index: 1;
+}
+
+.wireframe-1 { width: 80px; height: 80px; top: 40%; left: 5%; clip-path: polygon(50% 0%, 0% 100%, 100% 100%); animation-delay: 1s; }
+.wireframe-2 { width: 60px; height: 60px; top: 80%; right: 5%; clip-path: polygon(0% 0%, 100% 0%, 50% 100%); animation-delay: 6s; }
+.wireframe-3 { width: 70px; height: 70px; top: 15%; left: 70%; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); animation-delay: 3s; }
+.wireframe-4 { width: 50px; height: 50px; top: 35%; right: 40%; clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); animation-delay: 8s; }
+
+@keyframes wireframePulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.2); }
+}
+
+.shimmer-effect {
+  position: absolute;
+  background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+  animation: shimmerMove 8s ease-in-out infinite;
+  z-index: 1;
+}
+
+.shimmer-1 { width: 200px; height: 2px; top: 50%; left: 0%; animation-delay: 0s; }
+.shimmer-2 { width: 150px; height: 2px; top: 25%; right: 0%; animation-delay: 4s; }
+.shimmer-3 { width: 180px; height: 2px; top: 75%; left: 0%; animation-delay: 6s; }
+.shimmer-4 { width: 160px; height: 2px; top: 40%; right: 0%; animation-delay: 10s; }
+
+@keyframes shimmerMove {
+  0% { transform: translateX(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateX(100vw); opacity: 0; }
+}
+
+.floating-cube {
+  position: absolute;
+  border: 1px solid rgba(0, 255, 255, 0.5);
+  background: transparent;
+  animation: floatCube 14s ease-in-out infinite;
+  z-index: 1;
+}
+
+.cube-1 { width: 40px; height: 40px; top: 20%; left: 30%; animation-delay: 0s; }
+.cube-2 { width: 30px; height: 30px; top: 65%; right: 20%; animation-delay: 7s; }
+
+@keyframes floatCube {
+  0%, 100% { transform: rotate(0deg) scale(1); opacity: 0.5; }
+  25% { transform: rotate(90deg) scale(1.2); opacity: 0.8; }
+  50% { transform: rotate(180deg) scale(0.8); opacity: 0.4; }
+  75% { transform: rotate(270deg) scale(1.1); opacity: 0.7; }
+}
+
+@media (max-width: 768px) {
+  .jay-text { font-size: 5rem; }
+  .greeting { font-size: 1.5rem; }
+  .ellipse-2, .ellipse-4, .star-2, .star-4, .wireframe-2, .wireframe-4, .cube-2 { display: none; }
+}
+
+@media (max-width: 480px) {
+  .jay-text { font-size: 4rem; }
+  .ellipse-1, .ellipse-2, .ellipse-3, .ellipse-4, .star-2, .star-3, .star-4, .wireframe-2, .wireframe-3, .wireframe-4, .cube-2, .shimmer-2, .shimmer-3, .shimmer-4 { display: none; }
+}
