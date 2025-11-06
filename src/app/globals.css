@@ -19,6 +19,7 @@
   --gradient-secondary: linear-gradient(135deg, #667eea, #764ba2);
   --gradient-accent: linear-gradient(135deg, #f093fb, #f5576c);
 
+  --font-poppins: 'Poppins', sans-serif;
   --font-display: 'Orbitron', sans-serif;
   --font-body: 'Space Grotesk', sans-serif;
 }
@@ -30,7 +31,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins);
   color: #efefef;
   overflow-x: hidden;
   background: var(--color-dark-bg);
@@ -407,6 +408,31 @@ section {
 
 .glass-morphism {
   will-change: backdrop-filter;
+}
+
+/* Rainbow Gradient Text (for Identity and DataCamp sections) */
+.question-emphasis {
+  background: linear-gradient(90deg, #ff0000, #ff8000, #ffff00, #00ff00, #00ffff, #0080ff, #ff00ff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: rainbowText 6s linear infinite;
+}
+
+.datacamp-emphasis {
+  background: linear-gradient(90deg, #ff0000, #ff8000, #ffff00, #00ff00, #00ffff, #0080ff, #ff00ff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: rainbowText 8s linear infinite;
+  text-shadow: 0 0 20px rgba(0,255,255,0.5);
+}
+
+@keyframes rainbowText {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
 }
 
 /* Split screen adjustments */

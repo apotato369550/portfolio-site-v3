@@ -6,7 +6,7 @@
 }
 
 .hero-image-container {
-  background-image: url("../../../assets/vaporwave_background.png");
+  background-image: url("/assets/vaporwave_background.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -323,7 +323,7 @@
   .jay-glow {
     filter: blur(24px);
   }
-  
+
   .jay {
     font-size: 8rem !important;
   }
@@ -339,7 +339,7 @@
   .jay-glow {
     filter: blur(25px);
   }
-  
+
   .jay {
     font-size: 9rem !important;
   }

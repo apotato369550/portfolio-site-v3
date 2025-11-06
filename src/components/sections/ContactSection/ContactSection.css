@@ -1,10 +1,18 @@
 .contact-section {
   padding: 4rem 2rem;
+  min-height: 100vh;
+  background-image: url("/assets/vaporwave_background.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
 .contact-section .container {
   max-width: 600px;
   margin: 0 auto;
+  position: relative;
+  z-index: 10;
 }
 
 .contact-form {

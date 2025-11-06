@@ -3,23 +3,19 @@
   padding: 0px;
   height: 100vh;
   width: 100vw;
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #2d1b69 100%);
 }
 
-.hero-container {
+.hero-image-container {
+  background-image: url("/assets/vaporwave_background.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
   position: relative;
-  z-index: 2;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
 }
 
 /* Enhanced 3D Grid Effect */
-.hero-grid {
+.hero-image-container::before {
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -29,7 +25,7 @@
       90deg,
       transparent 0%,
       transparent 49%,
-      rgba(0, 255, 255, 0.2) 50%,
+      rgba(0, 255, 255, 0.4) 50%,
       transparent 51%,
       transparent 100%
     ),
@@ -37,7 +33,7 @@
       0deg,
       transparent 0%,
       transparent 49%,
-      rgba(0, 255, 255, 0.2) 50%,
+      rgba(0, 255, 255, 0.4) 50%,
       transparent 51%,
       transparent 100%
     );
@@ -49,7 +45,8 @@
 }
 
 @keyframes gridFloat {
-  0%, 100% {
+  0%,
+  100% {
     transform: perspective(800px) rotateX(65deg) translateY(0px);
   }
   50% {
@@ -57,63 +54,405 @@
   }
 }
 
-/* JAY Text Styling */
-.jay-text {
-  font-size: 8rem;
-  font-weight: 300;
-  font-family: 'Orbitron', sans-serif;
-  color: white;
-  text-shadow:
-    0 0 20px rgba(0, 255, 255, 0.8),
-    0 0 40px rgba(255, 0, 255, 0.6),
-    0 0 60px rgba(0, 255, 255, 0.4);
-  letter-spacing: 0.1em;
-  margin: 0;
-  position: relative;
+/* Enhanced Abstract Geometric Shapes */
+.hero-image-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: radial-gradient(
+      circle at 15% 25%,
+      rgba(0, 255, 255, 0.3) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 85% 75%,
+      rgba(255, 0, 255, 0.3) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 50% 10%,
+      rgba(0, 255, 255, 0.2) 0%,
+      transparent 30%
+    );
   z-index: 1;
+  animation: shapePulse 6s ease-in-out infinite;
 }
 
-.greeting {
-  font-size: 2rem;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 2rem;
-  font-weight: 300;
+@keyframes shapePulse {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
-.name {
-  font-size: 1.25rem;
-  color: rgba(0, 255, 255, 0.8);
-  margin: 0.5rem 0;
+/* Enhanced JAY Glow Effect */
+.jay-container {
+  position: relative;
+  display: inline-block;
 }
 
+.jay-glow {
+  background: linear-gradient(45deg, #ff0080, #8000ff, #0080ff, #ff0080);
+  background-size: 300% 300%;
+  animation: glowPulse 4s ease-in-out infinite;
+  filter: blur(25px);
+  border-radius: 50%;
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    background-position: 0% 50%;
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 0.9;
+    transform: scale(1.2);
+  }
+}
+
+/* Custom text sizes for responsive design */
+.text-9xl {
+  font-size: 8rem; /* 128px */
+}
+
+.text-10xl {
+  font-size: 9rem; /* 144px */
+}
+
+.text-11xl {
+  font-size: 10rem; /* 160px */
+}
+
+.text-12xl {
+  font-size: 11rem; /* 176px */
+}
+
+.text-13xl {
+  font-size: 12rem; /* 192px */
+}
+
+.text-14xl {
+  font-size: 13rem; /* 208px */
+}
+
+/* Responsive adjustments for very small screens */
+@media (max-width: 480px) {
+  .hero-image-container::before {
+    height: 40%;
+    background-size: 25px 25px;
+    transform: perspective(400px) rotateX(80deg);
+  }
+
+  .jay-glow {
+    filter: blur(10px);
+  }
+
+  .jay {
+    font-size: 4rem !important;
+  }
+
+  .greeting {
+    font-size: 2rem !important;
+  }
+
+  .name, .roles {
+    font-size: 0.75rem !important;
+  }
+
+  /* Hide most floating elements on very small screens */
+  .ellipse-1, .ellipse-2, .ellipse-3, .ellipse-4,
+  .star-2, .star-3, .star-4,
+  .wireframe-2, .wireframe-3, .wireframe-4,
+  .cube-2,
+  .shimmer-2, .shimmer-3, .shimmer-4 {
+    display: none;
+  }
+
+  .star-1 {
+    width: 8px;
+    height: 8px;
+  }
+
+  .wireframe-1 {
+    width: 30px;
+    height: 30px;
+  }
+
+  .cube-1 {
+    width: 15px;
+    height: 15px;
+  }
+
+  .shimmer-1 {
+    width: 80px;
+    height: 1px;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .hero-image-container::before {
+    height: 50%;
+    background-size: 30px 30px;
+    transform: perspective(500px) rotateX(75deg);
+  }
+
+  .jay-glow {
+    filter: blur(15px);
+  }
+
+  .scroll-instruction {
+    bottom: 3rem;
+  }
+
+  .jay {
+    font-size: 5rem !important; /* Smaller for very small screens */
+  }
+
+  /* Hide some floating elements on small screens to reduce clutter */
+  .ellipse-2, .ellipse-4, .star-2, .star-4, .wireframe-2, .wireframe-4, .cube-2 {
+    display: none;
+  }
+
+  /* Scale down remaining floating elements */
+  .ellipse-1, .ellipse-3 {
+    width: 80px;
+    height: 50px;
+  }
+
+  .star-1, .star-3 {
+    width: 12px;
+    height: 12px;
+  }
+
+  .wireframe-1, .wireframe-3 {
+    width: 50px;
+    height: 50px;
+  }
+
+  .cube-1 {
+    width: 25px;
+    height: 25px;
+  }
+
+  .shimmer-1, .shimmer-2, .shimmer-3, .shimmer-4 {
+    width: 100px;
+    height: 1px;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .hero-image-container::before {
+    height: 60%;
+    background-size: 45px 45px;
+    transform: perspective(650px) rotateX(68deg);
+  }
+
+  .jay-glow {
+    filter: blur(18px);
+  }
+
+  .jay {
+    font-size: 6.5rem !important;
+  }
+
+  /* Adjust floating elements for tablet/split screen */
+  .ellipse-1, .ellipse-3 {
+    width: 100px;
+    height: 65px;
+  }
+
+  .star-1, .star-3 {
+    width: 16px;
+    height: 16px;
+  }
+
+  .wireframe-1, .wireframe-3 {
+    width: 60px;
+    height: 60px;
+  }
+
+  .cube-1 {
+    width: 32px;
+    height: 32px;
+  }
+
+  .shimmer-1, .shimmer-2, .shimmer-3, .shimmer-4 {
+    width: 120px;
+    height: 1px;
+  }
+
+  /* Show all elements but smaller */
+  .ellipse-2, .ellipse-4 {
+    width: 80px;
+    height: 50px;
+  }
+
+  .star-2, .star-4 {
+    width: 12px;
+    height: 12px;
+  }
+
+  .wireframe-2, .wireframe-4 {
+    width: 45px;
+    height: 45px;
+  }
+
+  .cube-2 {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-image-container::before {
+    height: 68%;
+    background-size: 55px 55px;
+    transform: perspective(750px) rotateX(66deg);
+  }
+
+  .jay-glow {
+    filter: blur(24px);
+  }
+
+  .jay {
+    font-size: 8rem !important;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .hero-image-container::before {
+    height: 70%;
+    background-size: 60px 60px;
+    transform: perspective(800px) rotateX(65deg);
+  }
+
+  .jay-glow {
+    filter: blur(25px);
+  }
+
+  .jay {
+    font-size: 9rem !important;
+  }
+}
+
+@media (min-width: 1281px) and (max-width: 1536px) {
+  .jay {
+    font-size: 10rem !important;
+  }
+}
+
+@media (min-width: 1537px) {
+  .jay {
+    font-size: 11rem !important;
+  }
+}
+
+/* Ensure content is above the grid effect */
+.hero-container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Smooth transitions for responsive changes */
+.greeting,
+.jay,
+.name,
 .roles {
-  font-size: 1rem;
-  color: rgba(255, 0, 128, 0.7);
-  margin: 0.5rem 0;
-  letter-spacing: 0.2em;
+  transition: all 0.3s ease-in-out;
 }
 
-/* Floating Elements */
+/* Enhanced scroll instruction */
+.scroll-instruction {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+/* Floating Ellipses */
 .floating-ellipse {
   position: absolute;
-  border: 2px solid rgba(0, 255, 255, 0.4);
+  border: 2px solid rgba(0, 255, 255, 0.6);
   border-radius: 50%;
   animation: floatEllipse 15s ease-in-out infinite;
   z-index: 1;
 }
 
-.ellipse-1 { width: 120px; height: 80px; top: 20%; left: 10%; animation-delay: 0s; }
-.ellipse-2 { width: 100px; height: 60px; top: 60%; right: 15%; animation-delay: 5s; }
-.ellipse-3 { width: 140px; height: 90px; top: 10%; right: 10%; animation-delay: 10s; }
-.ellipse-4 { width: 110px; height: 70px; top: 45%; left: 5%; animation-delay: 12s; }
-
-@keyframes floatEllipse {
-  0%, 100% { transform: rotate(0deg) scale(1); opacity: 0.4; }
-  25% { transform: rotate(90deg) scale(1.1); opacity: 0.6; }
-  50% { transform: rotate(180deg) scale(0.9); opacity: 0.3; }
-  75% { transform: rotate(270deg) scale(1.05); opacity: 0.5; }
+.ellipse-1 {
+  width: 120px;
+  height: 80px;
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
 }
 
+.ellipse-2 {
+  width: 100px;
+  height: 60px;
+  top: 60%;
+  right: 15%;
+  animation-delay: 5s;
+}
+
+.ellipse-3 {
+  width: 140px;
+  height: 90px;
+  top: 10%;
+  right: 10%;
+  animation-delay: 10s;
+}
+
+.ellipse-4 {
+  width: 110px;
+  height: 70px;
+  top: 45%;
+  left: 5%;
+  animation-delay: 12s;
+}
+
+@keyframes floatEllipse {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.6;
+  }
+  25% {
+    transform: rotate(90deg) scale(1.1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: rotate(180deg) scale(0.9);
+    opacity: 0.4;
+  }
+  75% {
+    transform: rotate(270deg) scale(1.05);
+    opacity: 0.7;
+  }
+}
+
+/* Floating Stars */
 .floating-star {
   position: absolute;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
@@ -122,77 +461,220 @@
   z-index: 1;
 }
 
-.star-1 { width: 20px; height: 20px; top: 30%; left: 80%; animation-delay: 2s; }
-.star-2 { width: 15px; height: 15px; top: 70%; left: 20%; animation-delay: 7s; }
-.star-3 { width: 25px; height: 25px; top: 50%; right: 25%; animation-delay: 4s; }
-.star-4 { width: 18px; height: 18px; top: 85%; left: 50%; animation-delay: 9s; }
-
-@keyframes pulseStar {
-  0%, 100% { transform: scale(1); opacity: 0.6; filter: blur(0px); }
-  50% { transform: scale(1.5); opacity: 1; filter: blur(2px); }
+.star-1 {
+  width: 20px;
+  height: 20px;
+  top: 30%;
+  left: 80%;
+  animation-delay: 2s;
 }
 
+.star-2 {
+  width: 15px;
+  height: 15px;
+  top: 70%;
+  left: 20%;
+  animation-delay: 7s;
+}
+
+.star-3 {
+  width: 25px;
+  height: 25px;
+  top: 50%;
+  right: 25%;
+  animation-delay: 4s;
+}
+
+.star-4 {
+  width: 18px;
+  height: 18px;
+  top: 85%;
+  left: 50%;
+  animation-delay: 9s;
+}
+
+@keyframes pulseStar {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+    filter: blur(0px);
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+    filter: blur(2px);
+  }
+}
+
+/* Floating Wireframes */
 .floating-wireframe {
   position: absolute;
-  border: 1px solid rgba(0, 255, 255, 0.3);
+  border: 1px solid rgba(0, 255, 255, 0.5);
   background: transparent;
   animation: wireframePulse 10s ease-in-out infinite;
   z-index: 1;
 }
 
-.wireframe-1 { width: 80px; height: 80px; top: 40%; left: 5%; clip-path: polygon(50% 0%, 0% 100%, 100% 100%); animation-delay: 1s; }
-.wireframe-2 { width: 60px; height: 60px; top: 80%; right: 5%; clip-path: polygon(0% 0%, 100% 0%, 50% 100%); animation-delay: 6s; }
-.wireframe-3 { width: 70px; height: 70px; top: 15%; left: 70%; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); animation-delay: 3s; }
-.wireframe-4 { width: 50px; height: 50px; top: 35%; right: 40%; clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); animation-delay: 8s; }
-
-@keyframes wireframePulse {
-  0%, 100% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 0.7; transform: scale(1.2); }
+.wireframe-1 {
+  width: 80px;
+  height: 80px;
+  top: 40%;
+  left: 5%;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  animation-delay: 1s;
 }
 
+.wireframe-2 {
+  width: 60px;
+  height: 60px;
+  top: 80%;
+  right: 5%;
+  clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+  animation-delay: 6s;
+}
+
+.wireframe-3 {
+  width: 70px;
+  height: 70px;
+  top: 15%;
+  left: 70%;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  animation-delay: 3s;
+}
+
+.wireframe-4 {
+  width: 50px;
+  height: 50px;
+  top: 35%;
+  right: 40%;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  animation-delay: 8s;
+}
+
+@keyframes wireframePulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Shimmer Effects */
 .shimmer-effect {
   position: absolute;
-  background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+  background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.3), transparent);
   animation: shimmerMove 8s ease-in-out infinite;
   z-index: 1;
 }
 
-.shimmer-1 { width: 200px; height: 2px; top: 50%; left: 0%; animation-delay: 0s; }
-.shimmer-2 { width: 150px; height: 2px; top: 25%; right: 0%; animation-delay: 4s; }
-.shimmer-3 { width: 180px; height: 2px; top: 75%; left: 0%; animation-delay: 6s; }
-.shimmer-4 { width: 160px; height: 2px; top: 40%; right: 0%; animation-delay: 10s; }
-
-@keyframes shimmerMove {
-  0% { transform: translateX(-100%); opacity: 0; }
-  50% { opacity: 1; }
-  100% { transform: translateX(100vw); opacity: 0; }
+.shimmer-1 {
+  width: 200px;
+  height: 2px;
+  top: 50%;
+  left: 0%;
+  animation-delay: 0s;
 }
 
+.shimmer-2 {
+  width: 150px;
+  height: 2px;
+  top: 25%;
+  right: 0%;
+  animation-delay: 4s;
+}
+
+.shimmer-3 {
+  width: 180px;
+  height: 2px;
+  top: 75%;
+  left: 0%;
+  animation-delay: 6s;
+}
+
+.shimmer-4 {
+  width: 160px;
+  height: 2px;
+  top: 40%;
+  right: 0%;
+  animation-delay: 10s;
+}
+
+@keyframes shimmerMove {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+}
+
+/* Rainbow Glow for Greeting */
+.rainbow-glow {
+  background: linear-gradient(45deg, #ff0080, #8000ff, #0080ff, #ff0080);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: rainbowGlow 8s ease-in-out infinite;
+}
+
+@keyframes rainbowGlow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Floating Cubes */
 .floating-cube {
   position: absolute;
-  border: 1px solid rgba(0, 255, 255, 0.5);
+  border: 1px solid rgba(0, 255, 255, 0.7);
   background: transparent;
   animation: floatCube 14s ease-in-out infinite;
   z-index: 1;
 }
 
-.cube-1 { width: 40px; height: 40px; top: 20%; left: 30%; animation-delay: 0s; }
-.cube-2 { width: 30px; height: 30px; top: 65%; right: 20%; animation-delay: 7s; }
+.cube-1 {
+  width: 40px;
+  height: 40px;
+  top: 20%;
+  left: 30%;
+  animation-delay: 0s;
+}
+
+.cube-2 {
+  width: 30px;
+  height: 30px;
+  top: 65%;
+  right: 20%;
+  animation-delay: 7s;
+}
 
 @keyframes floatCube {
-  0%, 100% { transform: rotate(0deg) scale(1); opacity: 0.5; }
-  25% { transform: rotate(90deg) scale(1.2); opacity: 0.8; }
-  50% { transform: rotate(180deg) scale(0.8); opacity: 0.4; }
-  75% { transform: rotate(270deg) scale(1.1); opacity: 0.7; }
-}
-
-@media (max-width: 768px) {
-  .jay-text { font-size: 5rem; }
-  .greeting { font-size: 1.5rem; }
-  .ellipse-2, .ellipse-4, .star-2, .star-4, .wireframe-2, .wireframe-4, .cube-2 { display: none; }
-}
-
-@media (max-width: 480px) {
-  .jay-text { font-size: 4rem; }
-  .ellipse-1, .ellipse-2, .ellipse-3, .ellipse-4, .star-2, .star-3, .star-4, .wireframe-2, .wireframe-3, .wireframe-4, .cube-2, .shimmer-2, .shimmer-3, .shimmer-4 { display: none; }
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.7;
+  }
+  25% {
+    transform: rotate(90deg) scale(1.2);
+    opacity: 0.9;
+  }
+  50% {
+    transform: rotate(180deg) scale(0.8);
+    opacity: 0.5;
+  }
+  75% {
+    transform: rotate(270deg) scale(1.1);
+    opacity: 0.8;
+  }
 }

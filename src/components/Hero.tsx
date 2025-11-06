@@ -33,7 +33,7 @@ const Hero = () => {
           <Navbar />
           <div className="name-and-titles-container w-full flex-1 flex items-center justify-center">
             <div className="name-and-titles text-center max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
-              <p className="greeting text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl m-0 mb-6 text-white font-light">
+              <p className="greeting rainbow-glow text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl m-0 mb-6 font-light">
                 Hi! I'm
               </p>
               <div className="jay-container relative inline-block mb-12">
