@@ -8,129 +8,164 @@ export default function ContactSection() {
     name: '',
     email: '',
     message: '',
-    honeypot: '', // Hidden field for spam protection
   })
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
-  const [errorMessage, setErrorMessage] = useState('')
+  const [errors, setErrors] = useState<Record<string, string>>({})
+  const [submitting, setSubmitting] = useState(false)
+  const [feedback, setFeedback] = useState('')
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }))
+    }
+  }
+
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {}
+    if (!formData.name.trim()) newErrors.name = 'Name is required'
+    if (!formData.email.trim()) newErrors.email = 'Email is required'
+    else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Email is invalid'
+    if (!formData.message.trim()) newErrors.message = 'Message is required'
+    return newErrors
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-
-    // Check honeypot
-    if (formData.honeypot) {
-      // Bot detected - silently fail
-      setStatus('success')
-      setFormData({ name: '', email: '', message: '', honeypot: '' })
+    const validationErrors = validateForm()
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors)
       return
     }
 
-    setStatus('loading')
+    setSubmitting(true)
+    setFeedback('')
 
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       })
 
-      const data = await response.json()
-
       if (response.ok) {
-        setStatus('success')
-        setFormData({ name: '', email: '', message: '', honeypot: '' })
-        setTimeout(() => setStatus('idle'), 5000) // Reset after 5 seconds
+        setFeedback('Message sent successfully! Thanks for reaching out.')
+        setFormData({ name: '', email: '', message: '' })
       } else {
-        setStatus('error')
-        setErrorMessage(data.message || 'Failed to send message')
+        setFeedback('Oops, something went wrong. Try again later.')
       }
     } catch (error) {
-      setStatus('error')
-      setErrorMessage('Network error. Please try again.')
+      setFeedback('Network error. Please check your connection.')
+    } finally {
+      setSubmitting(false)
     }
   }
 
   return (
-    <section className="contact-section" id="contact">
-      <div className="container">
-        <h2 className="section-title">Get In Touch</h2>
+    <div id="contact-section" className="h-screen w-screen m-0 p-0 relative overflow-hidden">
+      <div className="contact-gradient-container h-full w-full m-0 p-0 relative">
 
-        <form onSubmit={handleSubmit} className="contact-form">
-          {/* Honeypot field (hidden from users) */}
-          <input
-            type="text"
-            name="website"
-            value={formData.honeypot}
-            onChange={(e) => setFormData({ ...formData, honeypot: e.target.value })}
-            style={{ display: 'none' }}
-            tabIndex={-1}
-            autoComplete="off"
-          />
+        {/* Floating vaporwave elements */}
+        <div className="contact-floating-elements absolute inset-0 z-1">
+          <div className="contact-ellipse contact-ellipse-1 absolute rounded-full transform rotate-30"></div>
+          <div className="contact-ellipse contact-ellipse-2 absolute rounded-full transform -rotate-15"></div>
+          <div className="contact-ellipse contact-ellipse-3 absolute rounded-full transform rotate-45"></div>
 
-          <div className="form-group">
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              required
-              minLength={2}
-              maxLength={100}
-              className="form-input"
-            />
-          </div>
+          <div className="contact-star contact-star-1 absolute w-4 h-4 bg-cyan-400 rounded-full blur-sm animate-pulse"></div>
+          <div className="contact-star contact-star-2 absolute w-3 h-3 bg-cyan-300 rounded-full blur-sm animate-pulse"></div>
+          <div className="contact-star contact-star-3 absolute w-5 h-5 bg-cyan-500 rounded-full blur-sm animate-pulse"></div>
 
-          <div className="form-group">
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              required
-              className="form-input"
-            />
-          </div>
+          <svg className="contact-wireframe contact-wireframe-1 absolute w-24 h-24" viewBox="0 0 100 100">
+            <polygon points="50,10 90,90 10,90" className="contact-wireframe-shape" />
+          </svg>
+          <svg className="contact-wireframe contact-wireframe-2 absolute w-20 h-20" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="35" className="contact-wireframe-shape" />
+          </svg>
+        </div>
 
-          <div className="form-group">
-            <textarea
-              name="message"
-              placeholder="Your Message"
-              value={formData.message}
-              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              required
-              minLength={10}
-              maxLength={1000}
-              rows={6}
-              className="form-textarea"
-            />
-          </div>
+        <div className="contact-container relative z-10 h-full w-full flex flex-col justify-center items-center px-4">
 
-          <button
-            type="submit"
-            disabled={status === 'loading'}
-            className="submit-button"
-          >
-            {status === 'loading' ? 'Sending...' : 'Send Message'}
-          </button>
+           {/* Title with vaporwave flair */}
+           <div className="contact-title mb-6 sm:mb-8">
+             <h1 className="font-light text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-10xl text-white leading-tight text-center">
+               <span className="contact-emphasis font-light italic">Get In Touch</span>
+             </h1>
+           </div>
 
-          {status === 'success' && (
-            <div className="success-message">
-              ✓ Message sent successfully! I'll get back to you soon.
+           {/* Contact Form - glass morphism style */}
+           <div className="contact-form-container max-w-3xl w-full">
+            <div className="glass-morphism p-6 sm:p-8 rounded-xl">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="block text-white text-xl mb-2 font-light">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="contact-input w-full p-3 rounded-lg bg-transparent border-2 border-cyan-400 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-300 transition-colors"
+                    placeholder="Your name"
+                  />
+                  {errors.name && <p className="text-red-400 mt-1">{errors.name}</p>}
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-white text-xl mb-2 font-light">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="contact-input w-full p-3 rounded-lg bg-transparent border-2 border-cyan-400 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-300 transition-colors"
+                    placeholder="your.email@example.com"
+                  />
+                  {errors.email && <p className="text-red-400 mt-1">{errors.email}</p>}
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="block text-white text-xl mb-2 font-light">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={5}
+                    className="contact-input w-full p-3 rounded-lg bg-transparent border-2 border-cyan-400 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-300 transition-colors resize-none"
+                    placeholder="What's on your mind?"
+                  />
+                  {errors.message && <p className="text-red-400 mt-1">{errors.message}</p>}
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="contact-submit-btn w-full py-3 px-6 bg-gradient-to-r from-cyan-400 to-cyan-500 text-white font-light rounded-lg hover:from-cyan-500 hover:to-cyan-600 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {submitting ? 'Sending...' : 'Send Message'}
+                </button>
+              </form>
+
+              {feedback && (
+                <div className={`mt-6 p-4 rounded-lg ${feedback.includes('successfully') ? 'bg-green-500/20 border border-green-400' : 'bg-red-500/20 border border-red-400'}`}>
+                  <p className="text-white">{feedback}</p>
+                </div>
+              )}
             </div>
-          )}
+          </div>
 
-          {status === 'error' && (
-            <div className="error-message">
-              ✗ {errorMessage}
-            </div>
-          )}
-        </form>
+        </div>
       </div>
-    </section>
+    </div>
   )
 }
