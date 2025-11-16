@@ -8,18 +8,7 @@ const DataCampSection = () => {
   const [courses, setCourses] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
-  // Function to get image filename from project title
-  const getImageName = (title: string) => {
-    const imageMap: { [key: string]: string } = {
-      'Assessing Customer Churn Using Machine Learning': 'customer_churn.jpg',
-      'Predicting Credit Card Approvals': 'credit_card_approvals.webp',
-      'Hypothesis Testing in Healthcare': 'hypothesis_healthcare.jpg',
-      'Predicting Movie Rental Durations': 'movie_rental_durations.jpg',
-      'Clustering Antarctic Penguin Species': 'antarctic_penguin_species.jpg'
-    };
-    return imageMap[title] || 'default.jpg';
-  };
+  const [failedImages, setFailedImages] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     const fetchData = async () => {
@@ -109,14 +98,20 @@ const DataCampSection = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {projects.map((project, index) => (
                 <div key={index} className="datacamp-card glass-morphism p-6 rounded-xl hover:scale-105 transition-transform duration-300">
-                  <img
-                    src={`/datacamp-images/${getImageName(project.project_title)}`}
-                    alt={project.project_title}
-                    className="w-full h-32 object-cover rounded-lg mb-4"
-                    onError={(e: any) => {
-                      e.target.src = '/datacamp-images/default.jpg';
-                    }}
-                  />
+                  {project.project_image && (
+                    <img
+                      src={project.project_image}
+                      alt={project.project_title}
+                      className="w-full h-32 object-cover rounded-lg mb-4"
+                      onError={(e: any) => {
+                        const imgSrc = e.target.src;
+                        if (!failedImages.has(imgSrc)) {
+                          setFailedImages(prev => new Set(prev).add(imgSrc));
+                          e.target.style.display = 'none';
+                        }
+                      }}
+                    />
+                  )}
                   <h3 className="text-xl text-white mb-2">{project.project_title}</h3>
                   <p className="text-gray-300 mb-4">{project.project_description}</p>
                   <a
