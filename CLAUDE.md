@@ -134,34 +134,51 @@ REFRESH_TOKEN=xxx
 CRON_SECRET=xxx
 ```
 
-## Migration Notes (v2 → v3)
+## Migration Status (v2 → v3)
 
-### Completed
-- ✅ All section components ported with vaporwave styling
-- ✅ All CSS files migrated (Hero, Identity, Location, TechStack, Projects, DataCamp, Contact)
-- ✅ All assets copied to `public/assets/`
-- ✅ Image paths updated to Next.js public folder convention
-- ✅ TypeScript types added throughout
-- ✅ Contact form with glass morphism styling
+### ✅ Completed
+- All section components ported with vaporwave styling
+- All CSS files migrated (Hero, Identity, Location, TechStack, Projects, DataCamp, Contact)
+- All assets copied to `public/assets/`
+- Image paths updated to Next.js public folder convention
+- TypeScript types added throughout
+- Contact form with glass morphism styling and validation
+- Loading screen with 3-second grid animation
+- Navbar and Footer components
+- API route structure in place (12 endpoints)
+- Supabase database schema created (6 tables)
+- External API fetchers (GitHub REST, LeetCode GraphQL)
 
-### API Integration Status
-- ⚠️ Supabase env vars needed for database operations
-- ⚠️ API routes exist but need env configuration
-- ⚠️ External API fetchers ready but need credentials
+### ⚠️ Environment-Dependent (Works when configured)
+- Supabase connection (requires env vars)
+- GitHub data fetching (requires GITHUB_TOKEN, GITHUB_USERNAME)
+- LeetCode submissions (requires LEETCODE_USERNAME)
+- Contact form email sending (requires EMAIL_USER, EMAIL_PASS)
+- Cron jobs (requires CRON_SECRET, Vercel Cron setup)
 
-### What Works (Frontend Only)
-- ✨ Full vaporwave visual design
-- ✨ All sections render with proper styling
+### 🔴 Known Issues
+1. Image serving route (`/api/projects/images/[filename]`) not implemented
+2. Database not seeded with initial data (populated via manual refresh or cron)
+3. Rate limiting uses in-memory store (needs Redis for production)
+4. Some TypeScript `any` types (should use specific interfaces)
+5. No error boundaries for graceful failure handling
+6. Admin dashboard incomplete
+
+### 📊 What Works (Frontend-Only)
+- ✨ Full vaporwave visual design with all effects
+- ✨ All 7 sections render correctly with styling
 - ✨ Responsive design (mobile, tablet, desktop)
-- ✨ Animations and effects (3D grid, floating shapes, glows)
-- ✨ Forms (Contact section with validation)
+- ✨ Animations (3D grid, floating shapes, glow effects)
+- ✨ Contact form with client-side validation
+- ✨ Loading screen with 3-second minimum display
+- ✨ Smooth navigation and transitions
 
-### What Needs Backend
-- 🔌 GitHub data fetching
-- 🔌 LeetCode submissions
-- 🔌 DataCamp courses/projects
-- 🔌 Contact form email sending
-- 🔌 Cron jobs for data refresh
+### 🔌 What Needs Backend Setup
+- GitHub projects and commit calendar (requires `/api/refresh-github`)
+- LeetCode submissions grid (requires `/api/refresh-leetcode`)
+- DataCamp courses and projects (requires database seeding)
+- Contact form email sending (requires Nodemailer + Gmail setup)
+- Scheduled data refresh (requires Vercel Cron + CRON_SECRET)
 
 ## Development
 
