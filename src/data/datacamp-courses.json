@@ -1,0 +1,34 @@
+[
+  {
+    "id": "python-intro",
+    "course_title": "Introduction to Python",
+    "course_description": "Master Python basics: variables, data types, functions, and control flow. Build foundational programming skills for data science.",
+    "date_completed": "2024-10-15",
+    "certificate_url": "https://datacamp.com/certificate/python-intro",
+    "image_url": "/assets/datacamp/python-intro.png"
+  },
+  {
+    "id": "pandas",
+    "course_title": "Data Manipulation with pandas",
+    "course_description": "Learn to efficiently manipulate and analyze data using pandas DataFrames, including filtering, grouping, and merging datasets.",
+    "date_completed": "2024-09-22",
+    "certificate_url": "https://datacamp.com/certificate/pandas",
+    "image_url": "/assets/datacamp/pandas.png"
+  },
+  {
+    "id": "sql-intro",
+    "course_title": "Introduction to SQL",
+    "course_description": "Master relational database fundamentals: SELECT queries, JOINs, aggregations, and subqueries for data retrieval.",
+    "date_completed": "2024-08-30",
+    "certificate_url": "https://datacamp.com/certificate/sql-intro",
+    "image_url": "/assets/datacamp/sql-intro.png"
+  },
+  {
+    "id": "ml-scikit",
+    "course_title": "Machine Learning with scikit-learn",
+    "course_description": "Build predictive models using classification, regression, and clustering algorithms with scikit-learn.",
+    "date_completed": "2024-07-18",
+    "certificate_url": "https://datacamp.com/certificate/ml-scikit",
+    "image_url": "/assets/datacamp/ml-scikit.png"
+  }
+]

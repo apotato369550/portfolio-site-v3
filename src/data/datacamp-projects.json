@@ -1,0 +1,37 @@
+[
+  {
+    "id": "customer-churn",
+    "project_title": "Assessing Customer Churn Using Machine Learning",
+    "project_description": "Built a predictive model to identify customers at risk of churning using classification algorithms and feature engineering techniques.",
+    "project_image": "/assets/datacamp-projects/customer_churn.jpg",
+    "project_url": "https://datacamp.com/projects/customer-churn"
+  },
+  {
+    "id": "credit-approvals",
+    "project_title": "Predicting Credit Card Approvals",
+    "project_description": "Developed a machine learning classifier to predict credit card approval decisions with 87% accuracy using scikit-learn and logistic regression.",
+    "project_image": "/assets/datacamp-projects/credit_card_approvals.webp",
+    "project_url": "https://datacamp.com/projects/credit-approvals"
+  },
+  {
+    "id": "hypothesis-healthcare",
+    "project_title": "Hypothesis Testing in Healthcare",
+    "project_description": "Applied statistical hypothesis testing to healthcare data to validate treatment effectiveness and patient outcome improvements.",
+    "project_image": "/assets/datacamp-projects/hypothesis_healthcare.jpg",
+    "project_url": "https://datacamp.com/projects/hypothesis-healthcare"
+  },
+  {
+    "id": "movie-rentals",
+    "project_title": "Predicting Movie Rental Durations",
+    "project_description": "Created a regression model to predict movie rental durations based on customer behavior and film characteristics.",
+    "project_image": "/assets/datacamp-projects/movie_rental_durations.jpg",
+    "project_url": "https://datacamp.com/projects/movie-rentals"
+  },
+  {
+    "id": "antarctic-penguins",
+    "project_title": "Clustering Antarctic Penguin Species",
+    "project_description": "Used unsupervised learning to cluster Antarctic penguin species based on physical measurements and habitat data.",
+    "project_image": "/assets/datacamp-projects/antarctic_penguin_species.jpg",
+    "project_url": "https://datacamp.com/projects/antarctic-penguins"
+  }
+]

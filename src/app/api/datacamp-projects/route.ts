@@ -1,15 +1,10 @@
 import { NextResponse } from 'next/server'
-import { supabase } from '@/lib/supabase'
+import datacampProjects from '@/data/datacamp-projects.json'
 
 export async function GET() {
   try {
-    const { data, error } = await supabase
-      .from('datacamp_projects')
-      .select('*')
-
-    if (error) throw error
-
-    return NextResponse.json(data)
+    // Return static data from JSON file
+    return NextResponse.json(datacampProjects)
   } catch (error) {
     console.error('Error fetching DataCamp projects:', error)
     return NextResponse.json(
@@ -19,4 +14,5 @@ export async function GET() {
   }
 }
 
+// Cache for 1 hour since data is static
 export const revalidate = 3600

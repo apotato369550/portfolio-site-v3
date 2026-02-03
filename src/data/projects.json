@@ -1,0 +1,26 @@
+[
+  {
+    "id": "portfolio-v3",
+    "name": "Portfolio Site V3",
+    "description": "Modern vaporwave-styled portfolio built with Next.js, Supabase, and TypeScript. Features ISR caching, external API integrations, and responsive design.",
+    "image": "/assets/portfolio-preview.png",
+    "github_url": "https://github.com/yourusername/portfolio-site-v3",
+    "tech_stack": ["Next.js", "React", "TypeScript", "Supabase", "Tailwind CSS"]
+  },
+  {
+    "id": "ai-chatbot",
+    "name": "AI Chatbot",
+    "description": "Conversational AI chatbot with streaming responses, context retention, and custom embeddings. Built with FastAPI and OpenAI GPT-4.",
+    "image": "/assets/chatbot-preview.png",
+    "github_url": "https://github.com/yourusername/ai-chatbot",
+    "tech_stack": ["Python", "FastAPI", "OpenAI", "LangChain", "PostgreSQL"]
+  },
+  {
+    "id": "task-manager",
+    "name": "Task Manager Pro",
+    "description": "Collaborative task management platform with real-time updates, team workspaces, and calendar integration.",
+    "image": "/assets/taskmanager-preview.png",
+    "github_url": "https://github.com/yourusername/task-manager",
+    "tech_stack": ["React", "Node.js", "MongoDB", "Socket.io", "Express"]
+  }
+]
