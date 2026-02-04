@@ -10,7 +10,6 @@ import DataSectionLoading from './DataSectionLoading';
 const ProjectsSection = () => {
   const [projects, setProjects] = useState<any[]>([]);
   const [commits, setCommits] = useState<any[]>([]);
-  const [leetcode, setLeetcode] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -23,23 +22,20 @@ const ProjectsSection = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const [projectsRes, commitsRes, leetcodeRes] = await Promise.all([
+        const [projectsRes, commitsRes] = await Promise.all([
           fetch('/api/recent-projects'),
-          fetch('/api/recent-commits'),
-          fetch('/api/leetcode-submissions')
+          fetch('/api/recent-commits')
         ]);
 
-        if (!projectsRes.ok || !commitsRes.ok || !leetcodeRes.ok) {
+        if (!projectsRes.ok || !commitsRes.ok) {
           throw new Error('Failed to fetch data');
         }
 
         const projectsData = await projectsRes.json();
         const commitsData = await commitsRes.json();
-        const leetcodeData = await leetcodeRes.json();
 
         setProjects(projectsData);
         setCommits(commitsData);
-        setLeetcode(leetcodeData);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An error occurred');
       } finally {
@@ -149,24 +145,6 @@ const ProjectsSection = () => {
             </div>
           </div>
 
-          {/* LeetCode Section */}
-          <div className="leetcode-section">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl text-white mb-6 sm:mb-8 font-light">LeetCode Activity</h2>
-            <div className="glass-morphism p-4 sm:p-6 rounded-xl">
-              <h3 className="text-lg sm:text-xl text-white mb-4">Recent Submissions</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-                {leetcode.slice(0, 9).map((submission, index) => (
-                  <div key={index} className="submission-item bg-gray-800/50 p-4 rounded-lg">
-                    <div className="text-white font-medium">{submission.problem_name}</div>
-                    <div className={`text-sm ${submission.submission_status === 'Accepted' ? 'text-green-400' : 'text-red-400'}`}>
-                      {submission.submission_status}
-                    </div>
-                    <div className="text-gray-400 text-xs">{submission.submission_date}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
 
         </div>
       </div>

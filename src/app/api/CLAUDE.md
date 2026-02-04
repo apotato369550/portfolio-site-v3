@@ -1,7 +1,7 @@
 # API Routes
 
 ## Overview
-Next.js App Router API routes for data fetching, form handling, and cron jobs. All routes follow the `route.ts` convention with exported HTTP method functions.
+Next.js App Router API routes for data fetching and form handling. All routes follow the `route.ts` convention with exported HTTP method functions.
 
 ## Route Pattern
 ```typescript
@@ -61,22 +61,6 @@ export async function POST(request: Request) {
 }
 ```
 **Source:** Supabase `github_commits` table
-**Used by:** ProjectsSection
-
-#### `GET /api/leetcode-submissions`
-**Purpose:** Fetch LeetCode problem submissions
-**Returns:** Array of submission objects
-**Schema:**
-```typescript
-{
-  id: string
-  title: string
-  difficulty: 'Easy' | 'Medium' | 'Hard'
-  timestamp: string
-  status: string
-}
-```
-**Source:** Supabase `leetcode_submissions` table
 **Used by:** ProjectsSection
 
 #### `GET /api/datacamp-projects`
@@ -142,40 +126,6 @@ export async function POST(request: Request) {
 - Database logging to `contact_submissions`
 **Used by:** ContactSection
 
-### Data Refresh Routes (Cron Jobs)
-
-#### `GET /api/cron/refresh-data`
-**Purpose:** Scheduled data refresh from external APIs
-**Authentication:** Requires `Authorization: Bearer ${CRON_SECRET}` header
-**Actions:**
-1. Fetch GitHub commits and repositories
-2. Fetch LeetCode submissions
-3. Update Supabase tables
-4. Log execution status
-**Schedule:** Runs every 6 hours via Vercel Cron
-**Response:**
-```typescript
-{
-  success: boolean
-  timestamp: string
-  results: {
-    github: { success: boolean, count: number }
-    leetcode: { success: boolean, count: number }
-  }
-}
-```
-
-#### `GET /api/cron/status`
-**Purpose:** Check last cron job execution status
-**Returns:**
-```typescript
-{
-  lastRun: string
-  status: 'success' | 'failed' | 'pending'
-  executionTime: number
-}
-```
-
 ### Image Serving Routes
 
 #### `GET /api/projects/images/[filename]`
@@ -217,16 +167,11 @@ SUPABASE_SERVICE_ROLE_KEY=xxx
 GITHUB_TOKEN=xxx
 GITHUB_USERNAME=xxx
 
-# LeetCode (data refresh)
-LEETCODE_USERNAME=xxx
-LEETCODE_SESSION_COOKIE=xxx
-
 # Email (contact form)
 EMAIL_USER=xxx
 EMAIL_PASS=xxx
 
-# Security (cron jobs)
-CRON_SECRET=xxx
+# Security
 REFRESH_TOKEN=xxx
 ```
 
@@ -264,7 +209,6 @@ const limit = 5 // requests per hour
 ### Configured Limits
 - **Contact Form:** 5 requests per hour per IP
 - **Data Fetch:** No limit (public read)
-- **Cron Jobs:** Authenticated only (no rate limit)
 
 ## Security
 
@@ -274,7 +218,6 @@ const limit = 5 // requests per hour
 3. **Sanitize user content** to prevent XSS/injection
 4. **Use parameterized queries** for database access
 5. **Implement rate limiting** for user-facing endpoints
-6. **Authenticate cron jobs** with secret tokens
 
 ### CORS Headers
 ```typescript
@@ -301,10 +244,6 @@ curl http://localhost:3000/api/recent-projects
 curl -X POST http://localhost:3000/api/contact \
   -H "Content-Type: application/json" \
   -d '{"name":"Test","email":"test@example.com","message":"Test message"}'
-
-# Test authenticated route
-curl http://localhost:3000/api/cron/refresh-data \
-  -H "Authorization: Bearer ${CRON_SECRET}"
 ```
 
 ### Production Testing

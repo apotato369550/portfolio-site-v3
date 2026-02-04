@@ -204,20 +204,6 @@
   overflow-wrap: break-word;
 }
 
-/* LeetCode Section */
-.leetcode-section {
-  margin-bottom: 3rem;
-}
-
-.submission-item {
-  transition: all 0.3s ease;
-}
-
-.submission-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
 /* Question emphasis */
 .question-emphasis {
   background: linear-gradient(90deg, #ff0080, #ff8000, #ffff00, #00ff00, #00ffff, #0080ff, #ff00ff);
@@ -258,8 +244,7 @@
   }
 
   .projects-grid h2,
-  .commits-section h2,
-  .leetcode-section h2 {
+  .commits-section h2 {
     font-size: 2rem;
   }
 
@@ -313,8 +298,7 @@
   }
 
   .projects-grid h2,
-  .commits-section h2,
-  .leetcode-section h2 {
+  .commits-section h2 {
     font-size: 1.5rem;
   }
 

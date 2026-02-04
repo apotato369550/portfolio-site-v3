@@ -28,7 +28,7 @@ portfolio-site-v3/
 │   │   ├── Navbar.tsx         # Navigation bar
 │   │   └── Footer.tsx         # Site footer
 │   ├── lib/                   # Utilities and fetchers
-│   │   ├── fetchers/          # External API fetchers (GitHub, LeetCode)
+│   │   ├── fetchers/          # External API fetchers (GitHub)
 │   │   ├── supabase/          # Supabase clients (client/server)
 │   │   └── utils/             # Helper functions
 │   └── types/                 # TypeScript type definitions
@@ -51,15 +51,15 @@ portfolio-site-v3/
 2. **Identity (About Me)** - Vaporwave statue, 3 content cards (Curiosity, Scholarly, Passion)
 3. **Location** - Cebu cityscape, location & study info
 4. **Tech Stack** - 15 tech icons in 3 categories with neon glow
-5. **Projects** - GitHub projects grid, commit calendar, recent commits, LeetCode submissions
+5. **Projects** - GitHub projects grid, commit calendar, recent commits
 6. **DataCamp** - DataCamp projects & courses with certificates
 7. **Contact** - Glass morphism form with vaporwave background
 
 ### Data Flow
-- **External APIs:** GitHub (commits, repos), LeetCode (submissions), DataCamp (manual)
+- **External APIs:** GitHub (commits, repos), DataCamp (manual)
 - **Database:** Supabase PostgreSQL stores fetched data
 - **Caching:** ISR (Incremental Static Regeneration) for performance
-- **Refresh:** Vercel Cron jobs update data periodically
+- **Data:** Served locally from `/public/assets/data/`
 
 ## Component Patterns
 
@@ -100,10 +100,9 @@ export async function GET() {
 ### Tables
 1. **github_commits** - Commit activity data
 2. **github_projects** - Repository information
-3. **leetcode_submissions** - LeetCode problem submissions
-4. **datacamp_courses** - DataCamp courses with certificates
-5. **datacamp_projects** - DataCamp project portfolio
-6. **contact_submissions** - Contact form entries (with spam protection)
+3. **datacamp_courses** - DataCamp courses with certificates
+4. **datacamp_projects** - DataCamp project portfolio
+5. **contact_submissions** - Contact form entries (with spam protection)
 
 ### Key Patterns
 - All tables use UUID primary keys
@@ -122,8 +121,6 @@ SUPABASE_SERVICE_ROLE_KEY=xxx
 # External APIs
 GITHUB_TOKEN=xxx
 GITHUB_USERNAME=xxx
-LEETCODE_USERNAME=xxx
-LEETCODE_SESSION_COOKIE=xxx
 
 # Contact Form
 EMAIL_USER=xxx
@@ -131,7 +128,6 @@ EMAIL_PASS=xxx
 
 # Security
 REFRESH_TOKEN=xxx
-CRON_SECRET=xxx
 ```
 
 ## Migration Status (v2 → v3)
@@ -145,16 +141,14 @@ CRON_SECRET=xxx
 - Contact form with glass morphism styling and validation
 - Loading screen with 3-second grid animation
 - Navbar and Footer components
-- API route structure in place (12 endpoints)
-- Supabase database schema created (6 tables)
-- External API fetchers (GitHub REST, LeetCode GraphQL)
+- API route structure in place
+- Supabase database schema created (5 tables)
+- External API fetchers (GitHub REST)
 
 ### ⚠️ Environment-Dependent (Works when configured)
 - Supabase connection (requires env vars)
 - GitHub data fetching (requires GITHUB_TOKEN, GITHUB_USERNAME)
-- LeetCode submissions (requires LEETCODE_USERNAME)
 - Contact form email sending (requires EMAIL_USER, EMAIL_PASS)
-- Cron jobs (requires CRON_SECRET, Vercel Cron setup)
 
 ### 🔴 Known Issues
 1. Image serving route (`/api/projects/images/[filename]`) not implemented
@@ -166,7 +160,7 @@ CRON_SECRET=xxx
 
 ### 📊 What Works (Frontend-Only)
 - ✨ Full vaporwave visual design with all effects
-- ✨ All 7 sections render correctly with styling
+- ✨ All 6 sections render correctly with styling
 - ✨ Responsive design (mobile, tablet, desktop)
 - ✨ Animations (3D grid, floating shapes, glow effects)
 - ✨ Contact form with client-side validation
@@ -174,11 +168,9 @@ CRON_SECRET=xxx
 - ✨ Smooth navigation and transitions
 
 ### 🔌 What Needs Backend Setup
-- GitHub projects and commit calendar (requires `/api/refresh-github`)
-- LeetCode submissions grid (requires `/api/refresh-leetcode`)
+- GitHub projects and commit calendar (requires `/api/recent-projects` and `/api/recent-commits`)
 - DataCamp courses and projects (requires database seeding)
 - Contact form email sending (requires Nodemailer + Gmail setup)
-- Scheduled data refresh (requires Vercel Cron + CRON_SECRET)
 
 ## Development
 
@@ -212,7 +204,6 @@ npm run lint         # Run ESLint
    - **Build Command:** `npm run build`
    - **Output Directory:** `.next`
    - **Install Command:** `npm install`
-4. Enable Vercel Cron for data refresh jobs
 
 ### Supabase Setup
 1. Create project in Supabase dashboard
