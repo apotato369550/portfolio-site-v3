@@ -1,6 +1,62 @@
-# Legacy Scripts (Deprecated)
+# Scripts Directory
 
-**⚠️ These files have been migrated to the Supabase migrations system.**
+## UI Inspection Script
+
+**New in v3:** `inspect-ui.ts` - Playwright-based UI inspection tool for analyzing the portfolio site structure and capturing assets.
+
+### Usage
+
+```bash
+# Run inspection on default port 3000
+npm run inspect:ui
+
+# Run inspection on custom port
+npm run inspect:ui -- --port=3001
+```
+
+### What It Does
+
+1. Launches a Playwright browser and navigates to localhost:PORT
+2. Waits for the loading screen animation to complete (3.5 seconds)
+3. Takes a full-page screenshot
+4. Analyzes the DOM and extracts:
+   - All sections with IDs
+   - All images (src, alt, visibility)
+   - All buttons and interactive elements
+   - All headings (h1-h6)
+   - All links with href values
+   - Viewport dimensions
+
+### Output
+
+Creates `/inspect-output/` directory with:
+- `screenshot.png` - Full-page screenshot (PNG, ~2-3 MB)
+- `ui-report.json` - Structured data report (JSON, ~10-15 KB)
+
+The JSON report has this structure:
+```json
+{
+  "timestamp": "ISO 8601 timestamp",
+  "viewport": { "width": 1280, "height": 720 },
+  "sections": [{ "id": "...", "tagName": "...", "isVisible": true, ... }],
+  "images": [{ "src": "...", "alt": "...", "isVisible": true, ... }],
+  "buttons": [{ "text": "...", "selector": "...", ... }],
+  "headings": [{ "level": "h1", "text": "...", ... }],
+  "links": [{ "href": "...", "text": "...", ... }]
+}
+```
+
+### Requirements
+
+- Next.js dev server running (default port 3000)
+- Playwright browsers installed (`npx playwright install`)
+- TypeScript and ts-node available
+
+---
+
+## Legacy Scripts (Deprecated)
+
+**⚠️ Database migration files have been migrated to the Supabase migrations system.**
 
 ## New Location
 

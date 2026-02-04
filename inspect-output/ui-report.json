@@ -1,0 +1,753 @@
+{
+  "timestamp": "2026-02-04T13:20:34.360Z",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "sections": [
+    {
+      "id": "_R_",
+      "tagName": "script",
+      "classNames": [],
+      "text": "self.__next_r=\"mJMohme6y-BtPIRv5EDtk\"",
+      "isVisible": false
+    },
+    {
+      "id": "hero",
+      "tagName": "section",
+      "classNames": [
+        "h-screen",
+        "w-screen",
+        "m-0",
+        "p-0",
+        "relative",
+        "overflow-hidden"
+      ],
+      "text": "HomeAbout MeWhat I Work WithWhat I'm Working OnReach Out To MeHi! I'mJAY.John Andre YapFullstack Dev",
+      "isVisible": true
+    },
+    {
+      "id": "navbar",
+      "tagName": "nav",
+      "classNames": [
+        "hidden",
+        "lg:block",
+        "w-full"
+      ],
+      "text": "HomeAbout MeWhat I Work WithWhat I'm Working OnReach Out To Me",
+      "isVisible": true
+    },
+    {
+      "id": "identity-section",
+      "tagName": "div",
+      "classNames": [
+        "m-0",
+        "p-0",
+        "h-screen",
+        "w-full",
+        "relative",
+        "overflow-hidden"
+      ],
+      "text": "Who am I, really?CuriosityI wouldn't be me if I weren't curious about everything. I'm  fueled by a b",
+      "isVisible": true
+    },
+    {
+      "id": "location-section",
+      "tagName": "div",
+      "classNames": [
+        "m-0",
+        "p-0",
+        "w-full",
+        "relative",
+        "overflow-hidden"
+      ],
+      "text": "Where am I located?Where am I studying?Currently coding life away in sunny Cebu, at the center of Vi",
+      "isVisible": true
+    },
+    {
+      "id": "tech-stack-section",
+      "tagName": "div",
+      "classNames": [
+        "m-0",
+        "p-0",
+        "w-full",
+        "relative",
+        "overflow-hidden"
+      ],
+      "text": "What do I work with?Languages and FrameworksTools and PlatformsCurrently Exploring",
+      "isVisible": true
+    },
+    {
+      "id": "projects-section",
+      "tagName": "div",
+      "classNames": [
+        "m-0",
+        "p-0",
+        "w-full",
+        "relative",
+        "overflow-hidden",
+        "min-h-screen"
+      ],
+      "text": "What have I been working on?My ProjectsPortfolio Site V3Modern vaporwave-styled portfolio built with",
+      "isVisible": true
+    },
+    {
+      "id": "datacamp-section",
+      "tagName": "div",
+      "classNames": [
+        "m-0",
+        "p-0",
+        "w-full",
+        "relative",
+        "overflow-hidden",
+        "min-h-screen"
+      ],
+      "text": "DataCamp ProjectsMy Data Science AdventuresAssessing Customer Churn Using Machine LearningBuilt a pr",
+      "isVisible": true
+    },
+    {
+      "id": "contact-section",
+      "tagName": "div",
+      "classNames": [
+        "h-screen",
+        "w-screen",
+        "m-0",
+        "p-0",
+        "relative",
+        "overflow-hidden"
+      ],
+      "text": "Get In TouchNameEmailMessageSend Message",
+      "isVisible": true
+    },
+    {
+      "id": "name",
+      "tagName": "input",
+      "classNames": [
+        "contact-input",
+        "w-full",
+        "p-3",
+        "rounded-lg",
+        "bg-transparent",
+        "border-2",
+        "border-cyan-400",
+        "text-white",
+        "placeholder-gray-400",
+        "focus:outline-none",
+        "focus:border-cyan-300",
+        "transition-colors"
+      ],
+      "text": "",
+      "isVisible": true
+    },
+    {
+      "id": "email",
+      "tagName": "input",
+      "classNames": [
+        "contact-input",
+        "w-full",
+        "p-3",
+        "rounded-lg",
+        "bg-transparent",
+        "border-2",
+        "border-cyan-400",
+        "text-white",
+        "placeholder-gray-400",
+        "focus:outline-none",
+        "focus:border-cyan-300",
+        "transition-colors"
+      ],
+      "text": "",
+      "isVisible": true
+    },
+    {
+      "id": "message",
+      "tagName": "textarea",
+      "classNames": [
+        "contact-input",
+        "w-full",
+        "p-3",
+        "rounded-lg",
+        "bg-transparent",
+        "border-2",
+        "border-cyan-400",
+        "text-white",
+        "placeholder-gray-400",
+        "focus:outline-none",
+        "focus:border-cyan-300",
+        "transition-colors",
+        "resize-none"
+      ],
+      "text": "",
+      "isVisible": true
+    }
+  ],
+  "images": [
+    {
+      "src": "http://localhost:3000/assets/IdentitySection/new_pillar.png",
+      "alt": "pillar left",
+      "width": 300,
+      "height": 600,
+      "isVisible": true,
+      "selector": "img[alt=\"pillar left\"]"
+    },
+    {
+      "src": "http://localhost:3000/assets/IdentitySection/new_pillar.png",
+      "alt": "pillar right",
+      "width": 300,
+      "height": 600,
+      "isVisible": true,
+      "selector": "img[alt=\"pillar right\"]"
+    },
+    {
+      "src": "http://localhost:3000/assets/IdentitySection/vaporwave%20statue.png",
+      "alt": "vaporwave statue image",
+      "width": 469,
+      "height": 24,
+      "isVisible": true,
+      "selector": "img[alt=\"vaporwave statue image\"]"
+    },
+    {
+      "src": "http://localhost:3000/assets/LocationSection/vaporwave%20trees.png",
+      "alt": "Vaporwave palm trees",
+      "width": 448,
+      "height": 24,
+      "isVisible": true,
+      "selector": "img[alt=\"Vaporwave palm trees\"]"
+    },
+    {
+      "src": "http://localhost:3000/assets/LocationSection/cebu_cropped_nobg.png",
+      "alt": "Cebu cityscape",
+      "width": 368,
+      "height": 24,
+      "isVisible": true,
+      "selector": "img[alt=\"Cebu cityscape\"]"
+    },
+    {
+      "src": "http://localhost:3000/assets/TechStackSection/html_5_photo.png",
+      "alt": "HTML5",
+      "width": 68,
+      "height": 128,
+      "isVisible": true,
+      "selector": "img[alt=\"HTML5\"]"
+    },
+    {
+      "src": "http://localhost:3000/assets/TechStackSection/css_photo.png",
+      "alt": "CSS3",
+      "width": 55,
+      "height": 128,
+      "isVisible": true,
+      "selector": "img[alt=\"CSS3\"]"
+    },
+    {
+      "src": "http://localhost:3000/assets/TechStackSection/js_photo.png",
+      "alt": "JavaScript",
+      "width": 101,
+      "height": 128,
+      "isVisible": true,
+      "selector": "img[alt=\"JavaScript\"]"
+    },
+    {
+      "src": "http://localhost:3000/assets/TechStackSection/mongodb.png",
+      "alt": "MongoDB",
+      "width": 92,
+      "height": 128,
+      "isVisible": true,
+      "selector": "img[alt=\"MongoDB\"]"
+    },
+    {
+      "src": "http://localhost:3000/assets/TechStackSection/express.js.png",
+      "alt": "Express.js",
+      "width": 91,
+      "height": 128,
+      "isVisible": true,
+      "selector": "img[alt=\"Express.js\"]"
+    },
+    {
+      "src": "http://localhost:3000/assets/TechStackSection/circle_react.png",
+      "alt": "React",
+      "width": 63,
+      "height": 128,
+      "isVisible": true,
+      "selector": "img[alt=\"React\"]"
+    },
+    {
+      "src": "http://localhost:3000/assets/TechStackSection/node.js.png",
+      "alt": "Node.js",
+      "width": 71,
+      "height": 128,
+      "isVisible": true,
+      "selector": "img[alt=\"Node.js\"]"
+    },
+    {
+      "src": "http://localhost:3000/assets/TechStackSection/python.png",
+      "alt": "Python",
+      "width": 72,
+      "height": 128,
+      "isVisible": true,
+      "selector": "img[alt=\"Python\"]"
+    },
+    {
+      "src": "http://localhost:3000/assets/TechStackSection/github-logo.png",
+      "alt": "GitHub",
+      "width": 70,
+      "height": 128,
+      "isVisible": true,
+      "selector": "img[alt=\"GitHub\"]"
+    },
+    {
+      "src": "http://localhost:3000/assets/TechStackSection/firebase%20logo.png",
+      "alt": "Firebase",
+      "width": 84,
+      "height": 128,
+      "isVisible": true,
+      "selector": "img[alt=\"Firebase\"]"
+    },
+    {
+      "src": "http://localhost:3000/assets/TechStackSection/Jupyter_logo.svg.png",
+      "alt": "Jupyter",
+      "width": 78,
+      "height": 128,
+      "isVisible": true,
+      "selector": "img[alt=\"Jupyter\"]"
+    },
+    {
+      "src": "http://localhost:3000/assets/TechStackSection/figma.png",
+      "alt": "Figma",
+      "width": 64,
+      "height": 128,
+      "isVisible": true,
+      "selector": "img[alt=\"Figma\"]"
+    },
+    {
+      "src": "http://localhost:3000/assets/TechStackSection/git%20logo.png",
+      "alt": "Git",
+      "width": 39,
+      "height": 128,
+      "isVisible": true,
+      "selector": "img[alt=\"Git\"]"
+    },
+    {
+      "src": "http://localhost:3000/assets/TechStackSection/c_logo.png",
+      "alt": "C Programming",
+      "width": 141,
+      "height": 128,
+      "isVisible": true,
+      "selector": "img[alt=\"C Programming\"]"
+    },
+    {
+      "src": "http://localhost:3000/assets/TechStackSection/scikitlearn%20logo.png",
+      "alt": "Scikit-learn",
+      "width": 107,
+      "height": 128,
+      "isVisible": true,
+      "selector": "img[alt=\"Scikit-learn\"]"
+    },
+    {
+      "src": "http://localhost:3000/api/projects/images/portfolio-preview.png",
+      "alt": "Portfolio Site V3",
+      "width": 305,
+      "height": 200,
+      "isVisible": true,
+      "selector": "img[alt=\"Portfolio Site V3\"]"
+    },
+    {
+      "src": "http://localhost:3000/api/projects/images/chatbot-preview.png",
+      "alt": "AI Chatbot",
+      "width": 305,
+      "height": 200,
+      "isVisible": true,
+      "selector": "img[alt=\"AI Chatbot\"]"
+    },
+    {
+      "src": "http://localhost:3000/api/projects/images/taskmanager-preview.png",
+      "alt": "Task Manager Pro",
+      "width": 305,
+      "height": 200,
+      "isVisible": true,
+      "selector": "img[alt=\"Task Manager Pro\"]"
+    },
+    {
+      "src": "http://localhost:3000/assets/datacamp-projects/customer_churn.jpg",
+      "alt": "Assessing Customer Churn Using Machine Learning",
+      "isVisible": false,
+      "selector": "img[alt=\"Assessing Customer Churn Using Machine Learning\"]"
+    },
+    {
+      "src": "http://localhost:3000/assets/datacamp-projects/credit_card_approvals.webp",
+      "alt": "Predicting Credit Card Approvals",
+      "isVisible": false,
+      "selector": "img[alt=\"Predicting Credit Card Approvals\"]"
+    },
+    {
+      "src": "http://localhost:3000/assets/datacamp-projects/hypothesis_healthcare.jpg",
+      "alt": "Hypothesis Testing in Healthcare",
+      "isVisible": false,
+      "selector": "img[alt=\"Hypothesis Testing in Healthcare\"]"
+    },
+    {
+      "src": "http://localhost:3000/assets/datacamp-projects/movie_rental_durations.jpg",
+      "alt": "Predicting Movie Rental Durations",
+      "isVisible": false,
+      "selector": "img[alt=\"Predicting Movie Rental Durations\"]"
+    },
+    {
+      "src": "http://localhost:3000/assets/datacamp-projects/antarctic_penguin_species.jpg",
+      "alt": "Clustering Antarctic Penguin Species",
+      "isVisible": false,
+      "selector": "img[alt=\"Clustering Antarctic Penguin Species\"]"
+    }
+  ],
+  "buttons": [
+    {
+      "text": "Send Message",
+      "selector": "button:contains(\"Send Message\")",
+      "isVisible": true
+    }
+  ],
+  "headings": [
+    {
+      "level": "h1",
+      "text": "JAY.",
+      "selector": "h1",
+      "isVisible": true
+    },
+    {
+      "level": "h1",
+      "text": "Who am I, really?",
+      "selector": "h1",
+      "isVisible": true
+    },
+    {
+      "level": "h3",
+      "text": "Curiosity",
+      "selector": "h3",
+      "isVisible": true
+    },
+    {
+      "level": "h3",
+      "text": "Scholarly",
+      "selector": "h3",
+      "isVisible": true
+    },
+    {
+      "level": "h3",
+      "text": "Passion",
+      "selector": "h3",
+      "isVisible": true
+    },
+    {
+      "level": "h2",
+      "text": "Where am I located?",
+      "selector": "h2",
+      "isVisible": true
+    },
+    {
+      "level": "h2",
+      "text": "Where am I studying?",
+      "selector": "h2",
+      "isVisible": true
+    },
+    {
+      "level": "h1",
+      "text": "What do I work with?",
+      "selector": "h1",
+      "isVisible": true
+    },
+    {
+      "level": "h2",
+      "text": "Languages and Frameworks",
+      "selector": "h2",
+      "isVisible": true
+    },
+    {
+      "level": "h2",
+      "text": "Tools and Platforms",
+      "selector": "h2",
+      "isVisible": true
+    },
+    {
+      "level": "h2",
+      "text": "Currently Exploring",
+      "selector": "h2",
+      "isVisible": true
+    },
+    {
+      "level": "h1",
+      "text": "What have I been working on?",
+      "selector": "h1",
+      "isVisible": true
+    },
+    {
+      "level": "h2",
+      "text": "My Projects",
+      "selector": "h2",
+      "isVisible": true
+    },
+    {
+      "level": "h3",
+      "text": "Portfolio Site V3",
+      "selector": "h3",
+      "isVisible": true
+    },
+    {
+      "level": "h3",
+      "text": "AI Chatbot",
+      "selector": "h3",
+      "isVisible": true
+    },
+    {
+      "level": "h3",
+      "text": "Task Manager Pro",
+      "selector": "h3",
+      "isVisible": true
+    },
+    {
+      "level": "h2",
+      "text": "Recent Commits",
+      "selector": "h2",
+      "isVisible": true
+    },
+    {
+      "level": "h3",
+      "text": "Commit Activity",
+      "selector": "h3",
+      "isVisible": true
+    },
+    {
+      "level": "h3",
+      "text": "Latest Commits",
+      "selector": "h3",
+      "isVisible": true
+    },
+    {
+      "level": "h1",
+      "text": "DataCamp Projects",
+      "selector": "h1",
+      "isVisible": true
+    },
+    {
+      "level": "h2",
+      "text": "My Data Science Adventures",
+      "selector": "h2",
+      "isVisible": true
+    },
+    {
+      "level": "h3",
+      "text": "Assessing Customer Churn Using Machine Learning",
+      "selector": "h3",
+      "isVisible": true
+    },
+    {
+      "level": "h3",
+      "text": "Predicting Credit Card Approvals",
+      "selector": "h3",
+      "isVisible": true
+    },
+    {
+      "level": "h3",
+      "text": "Hypothesis Testing in Healthcare",
+      "selector": "h3",
+      "isVisible": true
+    },
+    {
+      "level": "h3",
+      "text": "Predicting Movie Rental Durations",
+      "selector": "h3",
+      "isVisible": true
+    },
+    {
+      "level": "h3",
+      "text": "Clustering Antarctic Penguin Species",
+      "selector": "h3",
+      "isVisible": true
+    },
+    {
+      "level": "h2",
+      "text": "Courses & Certificates",
+      "selector": "h2",
+      "isVisible": true
+    },
+    {
+      "level": "h3",
+      "text": "Introduction to Python",
+      "selector": "h3",
+      "isVisible": true
+    },
+    {
+      "level": "h3",
+      "text": "Data Manipulation with pandas",
+      "selector": "h3",
+      "isVisible": true
+    },
+    {
+      "level": "h3",
+      "text": "Introduction to SQL",
+      "selector": "h3",
+      "isVisible": true
+    },
+    {
+      "level": "h3",
+      "text": "Machine Learning with scikit-learn",
+      "selector": "h3",
+      "isVisible": true
+    },
+    {
+      "level": "h1",
+      "text": "Get In Touch",
+      "selector": "h1",
+      "isVisible": true
+    }
+  ],
+  "links": [
+    {
+      "href": "http://localhost:3000/#hero",
+      "text": "Home",
+      "selector": "a[href=\"http://localhost:3000/#hero\"]",
+      "isVisible": true
+    },
+    {
+      "href": "http://localhost:3000/#identity-section",
+      "text": "About Me",
+      "selector": "a[href=\"http://localhost:3000/#identity-section\"]",
+      "isVisible": true
+    },
+    {
+      "href": "http://localhost:3000/#tech-stack-section",
+      "text": "What I Work With",
+      "selector": "a[href=\"http://localhost:3000/#tech-stack-section\"]",
+      "isVisible": true
+    },
+    {
+      "href": "http://localhost:3000/#projects-section",
+      "text": "What I'm Working On",
+      "selector": "a[href=\"http://localhost:3000/#projects-section\"]",
+      "isVisible": true
+    },
+    {
+      "href": "http://localhost:3000/#contact-section",
+      "text": "Reach Out To Me",
+      "selector": "a[href=\"http://localhost:3000/#contact-section\"]",
+      "isVisible": true
+    },
+    {
+      "href": "https://github.com/yourusername/portfolio-site-v3",
+      "text": "View on GitHub →",
+      "selector": "a[href=\"https://github.com/yourusername/portfolio-site-v3\"]",
+      "isVisible": true
+    },
+    {
+      "href": "https://github.com/yourusername/ai-chatbot",
+      "text": "View on GitHub →",
+      "selector": "a[href=\"https://github.com/yourusername/ai-chatbot\"]",
+      "isVisible": true
+    },
+    {
+      "href": "https://github.com/yourusername/task-manager",
+      "text": "View on GitHub →",
+      "selector": "a[href=\"https://github.com/yourusername/task-manager\"]",
+      "isVisible": true
+    },
+    {
+      "href": "https://datacamp.com/projects/customer-churn",
+      "text": "View Project →",
+      "selector": "a[href=\"https://datacamp.com/projects/customer-churn\"]",
+      "isVisible": true
+    },
+    {
+      "href": "https://datacamp.com/projects/credit-approvals",
+      "text": "View Project →",
+      "selector": "a[href=\"https://datacamp.com/projects/credit-approvals\"]",
+      "isVisible": true
+    },
+    {
+      "href": "https://datacamp.com/projects/hypothesis-healthcare",
+      "text": "View Project →",
+      "selector": "a[href=\"https://datacamp.com/projects/hypothesis-healthcare\"]",
+      "isVisible": true
+    },
+    {
+      "href": "https://datacamp.com/projects/movie-rentals",
+      "text": "View Project →",
+      "selector": "a[href=\"https://datacamp.com/projects/movie-rentals\"]",
+      "isVisible": true
+    },
+    {
+      "href": "https://datacamp.com/projects/antarctic-penguins",
+      "text": "View Project →",
+      "selector": "a[href=\"https://datacamp.com/projects/antarctic-penguins\"]",
+      "isVisible": true
+    },
+    {
+      "href": "https://datacamp.com/certificate/python-intro",
+      "text": "View Certificate →",
+      "selector": "a[href=\"https://datacamp.com/certificate/python-intro\"]",
+      "isVisible": true
+    },
+    {
+      "href": "http://localhost:3000/assets/datacamp/python-intro.png",
+      "text": "Download PDF →",
+      "selector": "a[href=\"http://localhost:3000/assets/datacamp/python-intro.png\"]",
+      "isVisible": true
+    },
+    {
+      "href": "https://datacamp.com/certificate/pandas",
+      "text": "View Certificate →",
+      "selector": "a[href=\"https://datacamp.com/certificate/pandas\"]",
+      "isVisible": true
+    },
+    {
+      "href": "http://localhost:3000/assets/datacamp/pandas.png",
+      "text": "Download PDF →",
+      "selector": "a[href=\"http://localhost:3000/assets/datacamp/pandas.png\"]",
+      "isVisible": true
+    },
+    {
+      "href": "https://datacamp.com/certificate/sql-intro",
+      "text": "View Certificate →",
+      "selector": "a[href=\"https://datacamp.com/certificate/sql-intro\"]",
+      "isVisible": true
+    },
+    {
+      "href": "http://localhost:3000/assets/datacamp/sql-intro.png",
+      "text": "Download PDF →",
+      "selector": "a[href=\"http://localhost:3000/assets/datacamp/sql-intro.png\"]",
+      "isVisible": true
+    },
+    {
+      "href": "https://datacamp.com/certificate/ml-scikit",
+      "text": "View Certificate →",
+      "selector": "a[href=\"https://datacamp.com/certificate/ml-scikit\"]",
+      "isVisible": true
+    },
+    {
+      "href": "http://localhost:3000/assets/datacamp/ml-scikit.png",
+      "text": "Download PDF →",
+      "selector": "a[href=\"http://localhost:3000/assets/datacamp/ml-scikit.png\"]",
+      "isVisible": true
+    },
+    {
+      "href": "http://localhost:3000/#hero",
+      "text": "Home",
+      "selector": "a[href=\"http://localhost:3000/#hero\"]",
+      "isVisible": true
+    },
+    {
+      "href": "http://localhost:3000/#projects",
+      "text": "Projects",
+      "selector": "a[href=\"http://localhost:3000/#projects\"]",
+      "isVisible": true
+    },
+    {
+      "href": "http://localhost:3000/#contact",
+      "text": "Contact",
+      "selector": "a[href=\"http://localhost:3000/#contact\"]",
+      "isVisible": true
+    },
+    {
+      "href": "https://github.com/yourusername",
+      "text": "GitHub",
+      "selector": "a[href=\"https://github.com/yourusername\"]",
+      "isVisible": true
+    }
+  ]
+}

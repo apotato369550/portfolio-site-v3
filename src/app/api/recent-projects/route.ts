@@ -1,9 +1,13 @@
 import { NextResponse } from 'next/server'
-import projects from '@/data/projects.json'
+import * as fs from 'fs'
+import * as path from 'path'
 
 export async function GET() {
   try {
     // Return static data from JSON file
+    const dataPath = path.join(process.cwd(), 'public/assets/data/projects.json')
+    const fileContent = fs.readFileSync(dataPath, 'utf-8')
+    const projects = JSON.parse(fileContent)
     return NextResponse.json(projects)
   } catch (error) {
     console.error('Error fetching GitHub projects:', error)

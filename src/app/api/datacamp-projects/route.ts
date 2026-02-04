@@ -1,9 +1,13 @@
 import { NextResponse } from 'next/server'
-import datacampProjects from '@/data/datacamp-projects.json'
+import * as fs from 'fs'
+import * as path from 'path'
 
 export async function GET() {
   try {
     // Return static data from JSON file
+    const dataPath = path.join(process.cwd(), 'public/assets/data/datacamp-projects.json')
+    const fileContent = fs.readFileSync(dataPath, 'utf-8')
+    const datacampProjects = JSON.parse(fileContent)
     return NextResponse.json(datacampProjects)
   } catch (error) {
     console.error('Error fetching DataCamp projects:', error)
